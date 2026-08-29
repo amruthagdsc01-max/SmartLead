@@ -1,0 +1,239 @@
+/* SmartLead Global Styles */
+:root {
+  --primary: #0176d3;
+  --primary-dark: #014486;
+  --primary-light: #e8f4fd;
+  --success: #2e844a;
+  --success-light: #e6f3e9;
+  --warning: #dd7a01;
+  --warning-light: #fef3e0;
+  --danger: #ea001e;
+  --danger-light: #fce8ea;
+  --gray-50: #f3f3f3;
+  --gray-100: #e5e5e5;
+  --gray-200: #c9c9c9;
+  --gray-300: #aeaeae;
+  --gray-400: #939393;
+  --gray-500: #747474;
+  --gray-600: #5a5a5a;
+  --gray-700: #444444;
+  --gray-800: #2e2e2e;
+  --gray-900: #181818;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --transition: all 0.2s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-800);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+/* ============================================
+   UI/UX POLISH
+   ============================================ */
+
+/* Smooth page rendering */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Remove default link styling */
+a {
+  color: inherit;
+}
+
+/* Better button interaction */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keyboard accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(1, 118, 211, 0.25);
+  outline-offset: 2px;
+}
+
+/* Better text selection */
+::selection {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* Dashboard loading spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Smooth image rendering */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better mobile defaults */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+/* ============================================
+   RESPONSIVE DASHBOARD
+   ============================================ */
+
+@media (max-width: 480px) {
+  /* Prevent horizontal overflow */
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Main dashboard container */
+  .main-content > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px 14px !important;
+  }
+
+  /* Dashboard header */
+  .main-content > div > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  /* Dashboard title */
+  .main-content h1 {
+    font-size: 36px !important;
+    line-height: 1.15 !important;
+    max-width: 100% !important;
+  }
+
+  /* Dashboard description */
+  .main-content p {
+    max-width: 100% !important;
+    overflow-wrap: break-word;
+  }
+
+  /* Add Lead button */
+  .main-content button {
+    max-width: 100%;
+  }
+
+  /*
+     STATISTICS CARDS
+     Force the cards to fit inside the mobile screen.
+  */
+  .main-content > div > div:nth-child(3) {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .main-content > div > div:nth-child(3) > div {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Chart + Quick Actions */
+  .main-content > div > div:nth-child(4) {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .main-content > div > div:nth-child(4) > div {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 18px !important;
+  }
+
+  /* Bottom performance cards */
+  .main-content > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

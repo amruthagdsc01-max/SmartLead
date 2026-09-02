@@ -42,7 +42,13 @@ Instead of simply assigning a score to a lead, SmartLead provides a detailed bre
 * [Author](#-author)
 
 ---
+## 🚀 Live Demo
 
+🌐 **Live Application:** https://smart-lead-mocha.vercel.app/
+
+🔗 **Backend API:** https://smartlead-evbs.onrender.com
+
+📚 **API Documentation (Swagger):** https://smartlead-evbs.onrender.com/docs
 # 🚀 Project Overview
 
 SmartLead provides a complete workflow for managing and prioritizing sales leads.

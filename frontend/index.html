@@ -12,5 +12,8 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Nova AI chatbot widget. Settings live in the Nova dashboard; set the two VITE_NOVA_* variables
+         (see frontend/.env.example). If they are unset the widget simply doesn't load. -->
+    <script src="/nova/agent.js" data-agent-id="%VITE_NOVA_AGENT_ID%" data-api="%VITE_NOVA_API%" async></script>
   </body>
 </html>
